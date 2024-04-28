@@ -69,5 +69,5 @@ pip install aiobotocore aiohttp aioitertools aiosignal alabaster altair anaconda
 
 - Se for necessário atualizar o pip, use o comando 'python -m pip install --upgrade pip'
 
-_ para rodar o projeto acesse o diretório app\arquivosapp e digite o comando 'python appcursos.py'
+_ para rodar o projeto acesse o diretório app\arquivosapp e digite o comando 'flet run appcursos.py'
 
