@@ -1,35 +1,31 @@
 import flet as ft
 
 def main(page: ft.Page):
-    page.title="Cursos Grátis Aqui Tem APP"
+    page.title = "Cursos Grátis Aqui Tem APP"
     page.scroll = ft.ScrollMode.AUTO
-    
+
     def change_main_image(e):
         for elem in options.controls:
             if elem == e.control:
-                elem.opacity=1
-                main_image.src=elem.image_src
+                elem.opacity = 1
+                main_image.src = elem.image_src
             else:
-                elem.opacity=0.5
-                
+                elem.opacity = 0.5
         main_image.update()
         options.update()
-    
-    product_images=ft.Container(
+
+    product_images = ft.Container(
         col={'xs': 12, 'md': 6},
         padding=ft.padding.all(10),
         aspect_ratio=9/16,
         content=ft.Column(
-            
             horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-            #alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
             controls=[
                 main_image := ft.Image(
                     src='../app/img/artes.jpg',
                     width=500,
                     height=500,
                 ),
-                
                 options := ft.Row(
                     alignment=ft.MainAxisAlignment.CENTER,
                     controls=[
@@ -59,8 +55,8 @@ def main(page: ft.Page):
             ]
         )
     )
-    
-    product_details=ft.Container(    
+
+    product_details = ft.Container(
         col={'xs': 12, 'md': 6},
         padding=ft.padding.all(14),
         aspect_ratio=9/16,
@@ -78,13 +74,11 @@ def main(page: ft.Page):
                     color=ft.colors.WHITE,
                     size=20,
                 ),
-                
                 ft.Container(
                     margin=ft.margin.Margin(top=30,left=0, right=0, bottom=0)),
-                
                 ft.ResponsiveRow(
                     columns=12,
-                    controls=[ 
+                    controls=[
                         ft.Dropdown(
                             col=6,
                             label='Cursos',
@@ -121,17 +115,14 @@ def main(page: ft.Page):
                         )
                     ]
                 ),
-                
                 ft.Container(
                     margin=ft.margin.Margin(top=30,left=0, right=0, bottom=0)),
-                
                 ft.Text(
                     value='Avalie o curso',
                     color=ft.colors.WHITE,
                     italic=True,
                     size=20,
-                ), 
-                
+                ),
                 ft.ResponsiveRow(
                     alignment=ft.MainAxisAlignment.CENTER,
                     columns=12,
@@ -147,12 +138,10 @@ def main(page: ft.Page):
                                 ) for _ in range(5)
                             ]
                         )
-                    ]  
+                    ]
                 ),
-                
                 ft.Container(
                     margin=ft.margin.Margin(top=0,left=0, right=0, bottom=30)),
-                
                 ft.Tabs(
                     selected_index=0,
                     height=200,
@@ -182,18 +171,14 @@ def main(page: ft.Page):
                                 )
                             ),
                         ),
-                        
                     ]
                 ),
-                
                 ft.Container(
                     margin=ft.margin.Margin(top=0,left=0, right=0, bottom=10)),
-                
                 ft.ElevatedButton(
                     width=300,
                     content=ft.Text(
                         value='CADASTRAR',
-                        #color=ft.colors.WHITE,
                         size=20,
                     ),
                     style=ft.ButtonStyle(
@@ -214,24 +199,21 @@ def main(page: ft.Page):
             ]
         )
     )
-    
+
     layout = ft.Container(
-        #width=900,
         margin=ft.margin.Margin(top=30,left=0, right=0, bottom=0),
-        
         shadow=ft.BoxShadow(blur_radius=990, color=ft.colors.CYAN_900),
         content=ft.ResponsiveRow(
             columns=12,
             spacing=0,
             run_spacing=0,
             controls=[
-                #product_images,
                 product_details
             ]
         )
     )
-    
+
     page.add(layout)
-    
+
 if __name__ == '__main__':
-    ft.app(target=main, view=ft.AppView.WEB_BROWSER)
+    ft.app(target=main, view=ft.AppView.WEB_BROWSER, port=8000, host='192.168.1.8')
